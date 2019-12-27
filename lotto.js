@@ -1,17 +1,16 @@
-window.onload = function btnClick(){
-    var arr = new Array();
-    var userArr = new Array();
-    var counter = 0;
-    var userNum = document.getElementById("user-num");
+window.onload = function (){
+    var arr = [];
+    var lottoNum = document.getElementById("lotto-num");
     var btnCheck = document.getElementById("btn-check");
 
-    for (var i; i<6; i++) {
-        userArr[i] = userNum.value % 10;
-        userNum.value /= 10;
-        arr[i] = Math.floor(10 * Math.random()); //Math.floor 정수 변환, Math.random() 1미만의 실수 랜덤 값
-        for (var j; j<6; j++){
-            if (arr[i] == userArr[j]) counter += 1;
+    btnCheck.onclick = () => {
+        for (var i = 0; i < 7; i++) {
+            arr[i] = Math.floor(45 * Math.random()+1); //Math.floor 소수점 버림으로
+            for (var j = 0; j < i; j++) {
+                if (arr[i] == arr[j])
+                    i -= 1;
+            }
         }
+        lottoNum.value = arr.slice(0, 6) + " + " + arr[6];
     }
-    alert(counter+"개 맞추셨습니다.");
-}
+};
