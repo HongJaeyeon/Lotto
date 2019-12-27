@@ -5,7 +5,7 @@ window.onload = function (){
 
     btnCheck.onclick = () => {
         for (var i = 0; i < 7; i++) {
-            arr[i] = Math.floor(45 * Math.random()+1); //Math.floor 소수점 버림으로
+            arr[i] = Math.floor(45 * Math.random()+1); //Math.floor 소수점 버림
             for (var j = 0; j < i; j++) {
                 if (arr[i] == arr[j])
                     i -= 1;
