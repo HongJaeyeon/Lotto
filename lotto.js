@@ -3,14 +3,20 @@ window.onload = function (){
     var lottoNum = document.getElementById("lotto-num");
     var btnCheck = document.getElementById("btn-check");
 
+
     btnCheck.onclick = () => {
+        f();
+    }
+
+    function f() {
+        if (arr.length == 7) return lottoNum.value = arr.slice(0, 6) + " + " + arr[6];
+        arr.push(Math.floor(45 * Math.random() + 1))
         for (var i = 0; i < 7; i++) {
-            arr[i] = Math.floor(45 * Math.random()+1); //Math.floor 소수점 버림
             for (var j = 0; j < i; j++) {
                 if (arr[i] == arr[j])
                     i -= 1;
+                return f();
             }
         }
-        lottoNum.value = arr.slice(0, 6) + " + " + arr[6];
     }
 };
